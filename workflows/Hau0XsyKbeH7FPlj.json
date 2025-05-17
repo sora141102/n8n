@@ -232,7 +232,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "My workflow",
+  "name": "backup wfl",
   "nodes": [
     {
       "parameters": {},
@@ -637,22 +637,6 @@
     },
     {
       "parameters": {
-        "content": "## Edit this node 👇",
-        "height": 80,
-        "width": 150,
-        "color": 4
-      },
-      "id": "c0a02aa1-8357-4fde-aa2a-19ec136906fa",
-      "name": "Sticky Note3",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        320,
-        800
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "inputSource": "passthrough"
       },
       "id": "f77cfdd4-b368-49b4-bde4-98e90acf0494",
@@ -696,9 +680,13 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-05-16T10:53:30.000Z",
-  "versionId": "94f9daec-89fc-4aca-8968-1d90c91e2a68"
+  "triggerCount": 1,
+  "updatedAt": "2025-05-17T00:43:17.000Z",
+  "versionId": "c2da4d80-3992-4529-b0c5-1d88e26eceeb"
 }
