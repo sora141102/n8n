@@ -1,0 +1,492 @@
+{
+  "active": false,
+  "connections": {
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily": {
+      "ai_tool": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set 'Text'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set 'Text'": {
+      "main": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trợ Lý cá nhân Tối Thượng": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "viết mail": {
+      "ai_tool": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tạo lịch": {
+      "ai_tool": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "viết tt liên hệ": {
+      "ai_tool": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tạo nội dung": {
+      "ai_tool": [
+        [
+          {
+            "node": "Trợ Lý cá nhân Tối Thượng",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-16T03:09:01.299Z",
+  "id": "8Qs5U9t6akkrjDms",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Trợ lý ảo",
+  "nodes": [
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -80,
+        540
+      ],
+      "id": "7478396a-5663-4dcd-a0fb-2261544956f8",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Use this tool to search the internet",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n    \"api_key\": \"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\",\n    \"query\": \"{searchTerm}\",\n    \"search_depth\": \"basic\",\n    \"include_answer\": true,\n    \"topic\": \"news\",\n    \"include_raw_content\": true,\n    \"max_results\": 3,\n    \"include_images\": false\n} ",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "searchTerm",
+              "description": "What the user has requested to search the internet for",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        840,
+        500
+      ],
+      "id": "067d2843-f79d-41bd-89e3-e0e8e64960e2",
+      "name": "Tavily"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        960,
+        480
+      ],
+      "id": "c9032e56-9567-4351-95c9-82fbae56591f",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8b5399cd-d9fb-435b-aca3-453cde490f10",
+      "name": "Set 'Text'",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        40,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Voice"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8c844924-b2ed-48b0-935c-c66a8fd0c778",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ef47abe2-7e7f-4942-a9e3-99e31b8b6d13",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -220,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "9f966c48-3c42-4e63-bb58-489900953e35",
+      "name": "Response",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        880,
+        120
+      ],
+      "webhookId": "5dced4b9-5066-4036-a4d4-14fc07edd53c",
+      "credentials": {
+        "telegramApi": {
+          "id": "toNrwM6HU0EGUiHL",
+          "name": "Telegram botsora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "=# Overview\nYou are the ultimate personal assistant for me. Your job is to send the user's query to the correct tool. If the task you receive is writing content for social, you will use the \"Content_Creator_and_Research\" to perform the job, copy the result from the tool, and paste it into the output. Or else, You should never be writing emails, or creating even summaries, you just need to call the correct tool.\n\nAll the output need to be in Vietnamese.\n\n## Knowledge about me\n\nI'm the CEO & Cofounder of GTV SEO Agency and CAIO (Chief AI Offiecer) & Cofounder of The AI Growht (TAG). My Name is Nguyễn Thập Hồng (Vincent Do in English)\n\nMy specialty is in AI, Automation, SEO, Inbound Marketing, Content marketing. I'm from Vietnam. \n\nAs A personal assistant, you should deliver the professional, authority & expert tone for me, but also you need to be friendly. \n\nCách xưng hô: \n - Trong email: Sora và tên người gửi email (ví dụ: Ms. Chi, Ms. Thùy,  Mr.Tú)\n - Trong bài social và content: Mình và bạn.\n\n## Tools\n- emailAgent: Use this tool to take action in email\n- calendarAgent: Use this tool to take action in calendar\n- contactAgent: Use this tool to get, update, or add contacts (contact means liên hệ in vietnamese)\n- Content_Creator_and_Research: Use this tool to create soical content Or you need to do research\n- Tavily: use this tool when you need to do research or search and search image the internet.\n\n## Rules\n- Some actions require you to look up contact information first. For the following actions, you must get contact information and send that to the agent who needs it:\n  - sending emails\n  - drafting emails\n  - creating calendar event with attendee\n\n## Examples\n1) \n- Input: send an email to nate herkelman asking him what time he wants to leave\n  - Action: Use contactAgent to get nate herkelman's email\n  - Action: Use emailAgent to send the email. You will pass the tool a query like \"send nate herkelman an email to ask what time he wants to leave. here is his email: [email address]\n- Output: The email has been sent to Nate Herkelman. Anything else I can help you with?\n\n\n## Final Reminders\nHere is the current date/time: {{ $now }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        380,
+        140
+      ],
+      "id": "637e8ba9-7ebe-445a-aa42-a87965963f3d",
+      "name": "Trợ Lý cá nhân Tối Thượng"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -440,
+        160
+      ],
+      "id": "30b4d47e-850c-43d6-a9c2-c2c5978c797e",
+      "name": "Telegram Trigger",
+      "webhookId": "30d6e73d-f52b-4bd4-8f46-8fa9682a3214",
+      "credentials": {
+        "telegramApi": {
+          "id": "toNrwM6HU0EGUiHL",
+          "name": "Telegram botsora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        480
+      ],
+      "id": "48547eca-b3fe-4989-9f18-23a80b4592d6",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2ZCIwe2zVXFxCSmA",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "emailAgent",
+        "description": "Call this tool for any email actions.",
+        "workflowId": {
+          "__rl": true,
+          "value": "8IL6m2409Hn2NrCD",
+          "mode": "list",
+          "cachedResultName": "Viết mail"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        120,
+        540
+      ],
+      "id": "303ac6eb-61a7-42e6-9354-531fd2bbaace",
+      "name": "viết mail"
+    },
+    {
+      "parameters": {
+        "name": "calendarAgent",
+        "description": "Call this tool for any calendar action.",
+        "workflowId": {
+          "__rl": true,
+          "value": "EQBZoXrijjCO2VZ7",
+          "mode": "list",
+          "cachedResultName": "Tạo lịch"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        300,
+        540
+      ],
+      "id": "aa1cbb70-ab16-41ce-9744-bb3f1790c15f",
+      "name": "tạo lịch"
+    },
+    {
+      "parameters": {
+        "name": "contactAgent",
+        "description": "Call this tool for any contact (liên hệ) related actions.",
+        "workflowId": {
+          "__rl": true,
+          "value": "fythr7GoBG89ZOi4",
+          "mode": "list",
+          "cachedResultName": "Nhập tt liên hệ"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        460,
+        540
+      ],
+      "id": "3f3e74d8-5929-49e4-9e77-465e8c87f3f6",
+      "name": "viết tt liên hệ"
+    },
+    {
+      "parameters": {
+        "name": "Content_Creator_and_Research",
+        "description": "Call this tool to create social content & research.",
+        "workflowId": {
+          "__rl": true,
+          "value": "c9J3TggAR5KLwsT1",
+          "mode": "list",
+          "cachedResultName": "tạo content"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        640,
+        520
+      ],
+      "id": "bbd9dd4e-657b-4d33-a50e-14813cdd9934",
+      "name": "tạo nội dung"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-17T00:39:40.000Z",
+  "versionId": "1e0c85f1-0aff-4332-b9e5-e627196319e7"
+}
