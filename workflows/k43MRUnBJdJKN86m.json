@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "tiêu đề": {
       "main": [
@@ -291,9 +291,16 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:tiêu đề": {
+      "documentId": "170JZIC4zFekFbMKHighI9fvYc4DKshp2jY8wA7Ae5ls",
+      "sheetId": 880717940,
+      "lastRevision": 482,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=170JZIC4zFekFbMKHighI9fvYc4DKshp2jY8wA7Ae5ls&revision=482&exportFormat=xlsx"
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-05-16T03:07:27.000Z",
+  "triggerCount": 1,
+  "updatedAt": "2025-05-17T00:43:56.000Z",
   "versionId": "1edaa0aa-bbab-4075-b0b7-6c0865fb78b9"
 }
