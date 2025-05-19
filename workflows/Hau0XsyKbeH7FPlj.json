@@ -327,7 +327,6 @@
             "caseSensitive": true,
             "typeValidation": "strict"
           },
-          "combinator": "and",
           "conditions": [
             {
               "id": "45ce825e-9fa6-430c-8931-9aaf22c42585",
@@ -349,7 +348,8 @@
               "leftValue": "={{ $json.error }}",
               "rightValue": ""
             }
-          ]
+          ],
+          "combinator": "and"
         },
         "options": {}
       },
@@ -701,6 +701,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-19T01:00:21.000Z",
-  "versionId": "da7137b8-1193-4300-96b0-b0d60be967a4"
+  "updatedAt": "2025-05-19T01:37:18.000Z",
+  "versionId": "cc8543c4-49a7-4f11-9c7d-13718906e65f"
 }
