@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Basic LLM Chain1": {
       "main": [
@@ -257,7 +257,7 @@
       "credentials": {
         "telegramApi": {
           "id": "SxUsQzeBAKHUGR6h",
-          "name": "Telegram account"
+          "name": "Telegram N8N"
         }
       }
     }
@@ -266,9 +266,13 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Lên lịch": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-05-16T03:05:18.000Z",
-  "versionId": "d4739a98-c7f5-4d4b-8d06-fc0ec196aeba"
+  "triggerCount": 1,
+  "updatedAt": "2025-05-17T02:08:06.000Z",
+  "versionId": "77342e84-f65c-4ccf-a6c3-a6c1981f52e3"
 }
