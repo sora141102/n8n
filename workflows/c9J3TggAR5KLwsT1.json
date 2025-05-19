@@ -41,11 +41,6 @@
         ]
       ]
     },
-    "Google Docs  - Learn about Vincent Do Writing stlye": {
-      "ai_tool": [
-        []
-      ]
-    },
     "Response": {
       "main": [
         [
@@ -83,7 +78,7 @@
         "url": "https://api.tavily.com/search",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n    \"api_key\": \"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\",\n    \"query\": \"{searchTerm}\",\n    \"search_depth\": \"basic\",\n    \"include_answer\": true,\n    \"topic\": \"news\",\n    \"include_raw_content\": true,\n    \"max_results\": 3\n} ",
+        "jsonBody": "={\n    \"api_key\": \"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\",\n    \"query\": \"{searchTerm}\",\n    \"search_depth\": \"basic\",\n    \"include_answer\": true,\n    \"topic\": \"news\",\n    \"include_raw_content\": true,\n    \"max_results\": 3\n} ",
         "placeholderDefinitions": {
           "values": [
             {
@@ -97,8 +92,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "typeVersion": 1.1,
       "position": [
-        -420,
-        400
+        -360,
+        380
       ],
       "id": "0f56ceaf-ebdb-40a2-9aef-1c65ea1497be",
       "name": "Tavily"
@@ -167,7 +162,7 @@
         "promptType": "define",
         "text": "={{ $json.query}}",
         "options": {
-          "systemMessage": "=# Overview\nYou are a professional social media content creator and researcher specializing in crafting engaging, well-structured, and AI-enhanced content for Facebook profile posts. Your expertise lies in producing compelling content that resonates with Vietnamese-speaking professionals, including CEOs, SMEs, marketers, content marketers, and SEO specialists aged 20-35.\n\n## Content Style and Tone\nAnalyze the provided Google Docs file containing examples of previous Facebook posts to understand the unique writing style, tone, and content preferences. Emulate this style in all generated content to maintain consistency and authenticity. Key characteristics to incorporate:\n- **Professional & expert-driven**: Showcase deep industry knowledge with well-researched insights.\n- **Authoritative & thought-provoking**: Offer valuable perspectives, establish credibility, and position the writer as a leader in the field.\n-  **Friendly & conversational**: Write in a way that feels natural, like a knowledgeable mentor sharing insights with peers.\n- **Humorous & engaging**: Where appropriate, use light humor, relatable analogies, and witty remarks to keep the content enjoyable and memorable.\n\n## Main Tasks\n1. **Content Creation**: Develop concise, compelling, and engaging Facebook posts that align with the analyzed style and resonate with the target audience. Ensure content is optimized for readability and emotional impact, maintaining originality and relevance.\n2. **Trend Research and Summarization**: Utilize the Tavily tool to research current trends, viral content, and industry updates. Summarize findings and craft posts under 250 words that capture attention and stimulate discussion.\n\n## Tools\n- **Tavily**: Employ this tool to search the web for up-to-date, relevant information to inform and enhance your content creation.\n- **Google Docs  - Learn about Vincent Do Writing stlye**: Use this to learn and see examples of content facebook post that I have written.\n\n## Social Content Requirements\n- **Language**: All content must be written in Vietnamese.\n- **Formatting**:\n  - Use short, impactful sentences with appropriate line breaks for readability.\n  - Incorporate emojis and hashtags where suitable to enhance engagement and visibility.\n  - Include clear calls-to-action to prompt audience interaction.\n- **Structure**: Apply storytelling techniques, emotional triggers, or provocative questions to foster engagement.\n- **Brand Alignment**: Ensure the tone and style align with the intended brand or personal branding, reflecting the preferences identified in the analyzed Google Docs examples.\n - **Engagement Focus**: Each post should end with a thought-provoking **question** to drive engagement.\n- **Readability**: Content must be structured into short paragraphs for optimal mobile experience.\n- **Hashtags**: Include **3 relevant hashtags** at the end of each post.\n- [add power words for the content]\n\n## Output Requirements\n- **Language**: Vietnamese\n- **Length**: Each post should be less than 250 words.\n- **Style Consistency**: Adhere to the writing style and tone derived from the provided Google Docs examples to ensure consistency with previous content.\n"
+          "systemMessage": "=# Overview\nYou are a professional social media content creator and researcher specializing in crafting engaging, well-structured, and AI-enhanced content for Facebook profile posts. Your expertise lies in producing compelling content that resonates with Vietnamese-speaking professionals, including CEOs, SMEs, marketers, content marketers, and SEO specialists aged 20-35.\n\n## Content Style and Tone\nAnalyze the provided Google Docs file containing examples of previous Facebook posts to understand the unique writing style, tone, and content preferences. Emulate this style in all generated content to maintain consistency and authenticity. Key characteristics to incorporate:\n- **Professional & expert-driven**: Showcase deep industry knowledge with well-researched insights.\n- **Authoritative & thought-provoking**: Offer valuable perspectives, establish credibility, and position the writer as a leader in the field.\n-  **Friendly & conversational**: Write in a way that feels natural, like a knowledgeable mentor sharing insights with peers.\n- **Humorous & engaging**: Where appropriate, use light humor, relatable analogies, and witty remarks to keep the content enjoyable and memorable.\n\n## Main Tasks\n1. **Content Creation**: Develop concise, compelling, and engaging Facebook posts that align with the analyzed style and resonate with the target audience. Ensure content is optimized for readability and emotional impact, maintaining originality and relevance.\n2. **Trend Research and Summarization**: Utilize the Tavily tool to research current trends, viral content, and industry updates. Summarize findings and craft posts under 250 words that capture attention and stimulate discussion.\n\n## Tools\n- **Tavily**: Employ this tool to search the web for up-to-date, relevant information to inform and enhance your content creation.\n\n## Social Content Requirements\n- **Language**: All content must be written in Vietnamese.\n- **Formatting**:\n  - Use short, impactful sentences with appropriate line breaks for readability.\n  - Incorporate emojis and hashtags where suitable to enhance engagement and visibility.\n  - Include clear calls-to-action to prompt audience interaction.\n- **Structure**: Apply storytelling techniques, emotional triggers, or provocative questions to foster engagement.\n- **Brand Alignment**: Ensure the tone and style align with the intended brand or personal branding, reflecting the preferences identified in the analyzed Google Docs examples.\n - **Engagement Focus**: Each post should end with a thought-provoking **question** to drive engagement.\n- **Readability**: Content must be structured into short paragraphs for optimal mobile experience.\n- **Hashtags**: Include **3 relevant hashtags** at the end of each post.\n- [add power words for the content]\n\n## Output Requirements\n- **Language**: Vietnamese\n- **Length**: Each post should be less than 250 words.\n- **Style Consistency**: Adhere to the writing style and tone derived from the provided Google Docs examples to ensure consistency with previous content.\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -179,26 +174,6 @@
       "id": "9956d4e7-413b-409e-aadb-57d314eb88e0",
       "name": "Content Creator & Research Agent",
       "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "documentURL": "1ABdWxwuUoLpmL5UYAnJplHXWIWzpRIYeRytzm6i9J0c"
-      },
-      "type": "n8n-nodes-base.googleDocsTool",
-      "typeVersion": 2,
-      "position": [
-        -140,
-        400
-      ],
-      "id": "ee5fdea8-94ad-4b94-af08-6a1dbe8bc3a3",
-      "name": "Google Docs  - Learn about Vincent Do Writing stlye",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "sAf9Ox9LjK26x792",
-          "name": "Google Docs account"
-        }
-      }
     },
     {
       "parameters": {
@@ -220,16 +195,16 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Yêu cầu": "={{ $('When Executed by Another Workflow').item.json.query }}",
-            "Content": "={{ $('Content Creator & Research Agent').item.json.output }}"
+            "yêu cầu": "={{ $('When Executed by Another Workflow').item.json.query }}",
+            "content": "={{ $json.response }}"
           },
           "matchingColumns": [
             "ổn chứ?"
           ],
           "schema": [
             {
-              "id": "Yêu cầu",
-              "displayName": "Yêu cầu",
+              "id": "yêu cầu",
+              "displayName": "yêu cầu",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -238,31 +213,14 @@
               "removed": false
             },
             {
-              "id": "Content",
-              "displayName": "Content",
+              "id": "content",
+              "displayName": "content",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Link post",
-              "displayName": "Link post",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Others Link / Information",
-              "displayName": "Others Link / Information",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -321,6 +279,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-17T00:42:09.000Z",
-  "versionId": "12267026-9e14-4b0f-8b29-5d11ac43d3e0"
+  "updatedAt": "2025-05-17T02:55:48.000Z",
+  "versionId": "731cf25b-64e8-465c-9a5f-f1c7efa5177e"
 }
