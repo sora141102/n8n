@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -240,7 +240,7 @@
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        440,
+        40,
         260
       ],
       "typeVersion": 1
@@ -256,8 +256,8 @@
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        0,
-        640
+        -100,
+        720
       ],
       "typeVersion": 1
     },
@@ -270,7 +270,7 @@
       "name": "n8n",
       "type": "n8n-nodes-base.n8n",
       "position": [
-        700,
+        300,
         360
       ],
       "typeVersion": 1,
@@ -299,8 +299,8 @@
       "name": "Return",
       "type": "n8n-nodes-base.set",
       "position": [
-        1880,
-        840
+        1660,
+        980
       ],
       "typeVersion": 3.3
     },
@@ -313,8 +313,8 @@
       "name": "Get File",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        980,
-        720
+        900,
+        820
       ],
       "typeVersion": 4.2
     },
@@ -357,8 +357,8 @@
       "name": "If file too large",
       "type": "n8n-nodes-base.if",
       "position": [
-        780,
-        740
+        680,
+        800
       ],
       "typeVersion": 2
     },
@@ -368,8 +368,8 @@
       "name": "Merge Items",
       "type": "n8n-nodes-base.merge",
       "position": [
-        780,
-        1000
+        540,
+        1140
       ],
       "typeVersion": 2
     },
@@ -381,8 +381,8 @@
       "name": "isDiffOrNew",
       "type": "n8n-nodes-base.code",
       "position": [
-        980,
-        1000
+        760,
+        1140
       ],
       "typeVersion": 1
     },
@@ -410,8 +410,8 @@
       "name": "Check Status",
       "type": "n8n-nodes-base.switch",
       "position": [
-        1200,
-        1000
+        940,
+        1120
       ],
       "typeVersion": 1
     },
@@ -421,8 +421,8 @@
       "name": "Same file - Do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1420,
-        840
+        1200,
+        980
       ],
       "typeVersion": 1
     },
@@ -432,8 +432,8 @@
       "name": "File is different",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1420,
-        1000
+        1200,
+        1140
       ],
       "typeVersion": 1
     },
@@ -443,8 +443,8 @@
       "name": "File is new",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1420,
-        1160
+        1200,
+        1300
       ],
       "typeVersion": 1
     },
@@ -469,8 +469,8 @@
       "name": "Create new file",
       "type": "n8n-nodes-base.github",
       "position": [
-        1640,
-        1160
+        1420,
+        1300
       ],
       "typeVersion": 1,
       "webhookId": "b5dbe89c-04c9-4af6-a447-8bc9ab1f50eb",
@@ -503,8 +503,8 @@
       "name": "Edit existing file",
       "type": "n8n-nodes-base.github",
       "position": [
-        1640,
-        980
+        1420,
+        1120
       ],
       "typeVersion": 1,
       "webhookId": "c7124de9-c521-4b56-85e6-637bfa465f72",
@@ -523,7 +523,7 @@
       "name": "Loop Over Items",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        900,
+        500,
         360
       ],
       "typeVersion": 3
@@ -533,8 +533,7 @@
         "rule": {
           "interval": [
             {
-              "field": "hours",
-              "hoursInterval": 2
+              "triggerAtHour": 17
             }
           ]
         }
@@ -543,14 +542,14 @@
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "position": [
-        440,
+        40,
         460
       ],
       "typeVersion": 1.2
     },
     {
       "parameters": {
-        "content": "## Main workflow loop",
+        "content": "## Main workflow\n",
         "height": 434.88564057365943,
         "width": 886.4410237965205,
         "color": 7
@@ -559,7 +558,7 @@
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        400,
+        0,
         180
       ],
       "typeVersion": 1
@@ -586,8 +585,8 @@
       "name": "Get file data",
       "type": "n8n-nodes-base.github",
       "position": [
-        580,
-        740
+        500,
+        800
       ],
       "typeVersion": 1,
       "alwaysOutputData": true,
@@ -630,8 +629,8 @@
       "name": "Globals",
       "type": "n8n-nodes-base.set",
       "position": [
-        360,
-        900
+        320,
+        800
       ],
       "typeVersion": 3.4
     },
@@ -670,10 +669,25 @@
       "name": "Execute Workflow",
       "type": "n8n-nodes-base.executeWorkflow",
       "position": [
-        1120,
-        360
+        720,
+        380
       ],
       "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "content": "## 🧭 TỔNG QUAN Ý TƯỞNG:\n  #Workflow chính (Main):\n\n- Lấy toàn bộ workflows từ n8n.\n\n- Gọi subworkflow cho từng cái.\n\n#Subworkflow:\n\n- Lấy thông tin chi tiết từng workflow.\n\n- So sánh với nội dung đã lưu trên GitHub.\n\n- Nếu mới → tạo file mới.\n\n- Nếu đã tồn tại nhưng khác → cập nhật file.\n\nNếu giống → bỏ qua, không làm gì.",
+        "height": 420,
+        "width": 380
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        920,
+        180
+      ],
+      "typeVersion": 1,
+      "id": "e42df5b9-04e0-41b4-8a43-8b7a553611a5",
+      "name": "Sticky Note1"
     }
   ],
   "pinData": {},
@@ -687,6 +701,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-17T00:43:17.000Z",
-  "versionId": "c2da4d80-3992-4529-b0c5-1d88e26eceeb"
+  "updatedAt": "2025-05-17T02:13:11.000Z",
+  "versionId": "344fcafa-711b-48b4-8df1-405093b22914"
 }
