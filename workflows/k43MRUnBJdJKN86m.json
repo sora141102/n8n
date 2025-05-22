@@ -112,7 +112,7 @@
           "parameters": [
             {
               "name": "query",
-              "value": "={{ $('If').item.json['chủ đề'] }}"
+              "value": "={{ $('If').item.json['Chủ đề'] }}"
             }
           ]
         },
@@ -156,17 +156,17 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "hình ảnh": "={{ $json.photos[0].url }}",
-            "chủ đề": "={{ $('tiêu đề').item.json['chủ đề'] }}",
-            "nội dung": "={{ $('AI Agent').item.json.output }}"
+            "Chủ đề": "={{ $('If').item.json['Chủ đề'] }}",
+            "Nội Dung": "={{ $('AI Agent').item.json.output }}",
+            "Ảnh": "={{ $json.photos[0].url }}"
           },
           "matchingColumns": [
-            "chủ đề"
+            "Chủ đề"
           ],
           "schema": [
             {
-              "id": "chủ đề",
-              "displayName": "chủ đề",
+              "id": "Chủ đề",
+              "displayName": "Chủ đề",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -175,8 +175,8 @@
               "removed": false
             },
             {
-              "id": "nội dung",
-              "displayName": "nội dung",
+              "id": "Nội Dung",
+              "displayName": "Nội Dung",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -185,8 +185,8 @@
               "removed": false
             },
             {
-              "id": "hình ảnh",
-              "displayName": "hình ảnh",
+              "id": "Ảnh",
+              "displayName": "Ảnh",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -218,7 +218,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=chủ đề: {{ $json['chủ đề'] }}",
+        "text": "=chủ đề: {{ $json['Chủ đề'] }}",
         "options": {
           "systemMessage": "Hãy viết một bài văn nghị luận dài khoảng 100 từ với chủ đề: \"Sự kiên trì là chìa khóa của thành công.\"\n\nBài viết cần có cấu trúc rõ ràng: mở bài nêu vấn đề, thân bài phân tích và dẫn chứng (có thể sử dụng ví dụ thực tế hoặc từ sách báo), kết bài khẳng định lại quan điểm. Văn phong phù hợp với học sinh cấp 3, lập luận mạch lạc, có cảm xúc và dẫn chứng cụ thể."
         }
@@ -264,7 +264,7 @@
           "conditions": [
             {
               "id": "9a0af32a-cda0-4147-aaf8-032483bcd734",
-              "leftValue": "={{ $json['nội dung'] }}",
+              "leftValue": "={{ $json['Nội Dung'] }}",
               "rightValue": "",
               "operator": {
                 "type": "string",
@@ -301,6 +301,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-17T03:32:40.000Z",
-  "versionId": "1edaa0aa-bbab-4075-b0b7-6c0865fb78b9"
+  "updatedAt": "2025-05-22T02:32:15.000Z",
+  "versionId": "3ce5f5b3-0435-4031-8cec-907cc7acb2c4"
 }
