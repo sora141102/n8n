@@ -27,7 +27,7 @@
       "main": [
         [
           {
-            "node": "Create new file",
+            "node": "Create new file1",
             "type": "main",
             "index": 0
           }
@@ -94,13 +94,7 @@
     },
     "Create new file": {
       "main": [
-        [
-          {
-            "node": "Return",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Execute Command": {
@@ -163,7 +157,7 @@
       "main": [
         [
           {
-            "node": "Edit existing file",
+            "node": "Edit existing file1",
             "type": "main",
             "index": 0
           }
@@ -190,13 +184,7 @@
     },
     "Edit existing file": {
       "main": [
-        [
-          {
-            "node": "Return",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "On clicking 'execute'": {
@@ -233,6 +221,28 @@
             "node": "Merge Items",
             "type": "main",
             "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit existing file1": {
+      "main": [
+        [
+          {
+            "node": "Return",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new file1": {
+      "main": [
+        [
+          {
+            "node": "Return",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -460,8 +470,8 @@
       "name": "Create new file",
       "type": "n8n-nodes-base.github",
       "position": [
-        1640,
-        1160
+        1060,
+        0
       ],
       "typeVersion": 1,
       "webhookId": "7dcb8a62-b727-4af4-9d16-cb7c312cfaa1",
@@ -494,8 +504,8 @@
       "name": "Edit existing file",
       "type": "n8n-nodes-base.github",
       "position": [
-        1640,
-        980
+        1040,
+        1620
       ],
       "typeVersion": 1,
       "webhookId": "0667463f-8117-401f-a563-e2c106b887aa",
@@ -679,6 +689,73 @@
         1020
       ],
       "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $('Globals').item.json.repo.owner }}"
+        },
+        "repository": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $('Globals').item.json.repo.name }}"
+        },
+        "filePath": "={{ $('Globals').item.json.repo.path }}{{$('Execute Workflow Trigger').first().json.id}}.json",
+        "fileContent": "={{$('isDiffOrNew').item.json[\"n8n_data_stringy\"]}}",
+        "commitMessage": "={{$('Execute Workflow Trigger').first().json.name}} ({{$json.github_status}})"
+      },
+      "id": "d7331bf9-bbdb-472e-808b-748e211dc643",
+      "name": "Create new file1",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        1620,
+        1160
+      ],
+      "typeVersion": 1,
+      "webhookId": "b5dbe89c-04c9-4af6-a447-8bc9ab1f50eb",
+      "credentials": {
+        "githubApi": {
+          "id": "lBHOQG5ZiVbxhBHD",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $('Globals').item.json.repo.owner }}"
+        },
+        "repository": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $('Globals').item.json.repo.name }}"
+        },
+        "filePath": "={{ $('Globals').item.json.repo.path }}{{$('Execute Workflow Trigger').first().json.id}}.json",
+        "fileContent": "={{$('isDiffOrNew').item.json[\"n8n_data_stringy\"]}}",
+        "commitMessage": "={{$('Execute Workflow Trigger').first().json.name}} ({{$json.github_status}})"
+      },
+      "id": "15a57959-ae80-4a8c-b543-3e9d18f8a867",
+      "name": "Edit existing file1",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        1620,
+        1000
+      ],
+      "typeVersion": 1,
+      "webhookId": "c7124de9-c521-4b56-85e6-637bfa465f72",
+      "credentials": {
+        "githubApi": {
+          "id": "lBHOQG5ZiVbxhBHD",
+          "name": "GitHub account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -688,6 +765,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-17T02:11:27.000Z",
-  "versionId": "68414cd8-7efb-44bc-ad11-7819d0054fd4"
+  "updatedAt": "2025-05-22T02:31:27.000Z",
+  "versionId": "327b2dd2-f644-4139-b800-f5d99625a404"
 }
