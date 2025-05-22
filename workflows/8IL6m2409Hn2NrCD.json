@@ -203,7 +203,7 @@
       "typeVersion": 2.1,
       "position": [
         -920,
-        440
+        360
       ],
       "id": "702a7f79-4235-4589-9f7b-9bfea714bd91",
       "name": "Send Email",
@@ -228,8 +228,8 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        -280,
-        540
+        -320,
+        360
       ],
       "id": "73c7a444-9bb8-47cf-b103-e8355125b3c7",
       "name": "Get Emails",
@@ -254,8 +254,8 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        -440,
-        560
+        -460,
+        360
       ],
       "id": "a5672692-6b2b-408a-a7e6-ba0bd6802696",
       "name": "Create Draft",
@@ -280,7 +280,7 @@
       "typeVersion": 2.1,
       "position": [
         -760,
-        500
+        360
       ],
       "id": "5d3faec1-185b-43c8-b360-94eec6226ed3",
       "name": "Email Reply",
@@ -300,8 +300,8 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        -160,
-        480
+        -180,
+        360
       ],
       "id": "d7087542-cf85-42c9-b179-abbdced451d0",
       "name": "Get Labels",
@@ -323,7 +323,7 @@
       "typeVersion": 2.1,
       "position": [
         -600,
-        540
+        360
       ],
       "id": "5c5c3c17-5684-4f40-b08c-ec53b78870c7",
       "name": "Label Emails",
@@ -344,7 +344,7 @@
       "typeVersion": 2.1,
       "position": [
         -20,
-        420
+        360
       ],
       "id": "fc9977a2-b006-46c2-9131-22886bf2c35d",
       "name": "Mark Unread",
@@ -397,6 +397,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-17T02:18:49.000Z",
-  "versionId": "857ae9b8-42da-450d-8c96-f8c855cea14e"
+  "updatedAt": "2025-05-22T02:32:01.000Z",
+  "versionId": "26470bf2-929a-4c1e-ab98-d0abad9aec1e"
 }
