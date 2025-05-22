@@ -240,7 +240,7 @@
     {
       "parameters": {
         "chatId": "6835291187",
-        "text": "=Emai hôm nay:\n{{ $('Nối nội dung').item.json.concatenated_Email }}\nÝ chính: \n{{ $json.text }}",
+        "text": "=Emai hôm nay:\n{{ $('Nối nội dung').item.json.concatenated_Email }}\n\nÝ chính: \n{{ $json.text }}",
         "additionalFields": {
           "appendAttribution": false
         }
@@ -273,6 +273,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-17T02:08:06.000Z",
-  "versionId": "77342e84-f65c-4ccf-a6c3-a6c1981f52e3"
+  "updatedAt": "2025-05-22T01:32:58.000Z",
+  "versionId": "2384fedf-b18b-42f4-bded-53f4c5cd2ec0"
 }
