@@ -89,7 +89,8 @@
             "type": "main",
             "index": 0
           }
-        ]
+        ],
+        []
       ]
     },
     "Get file data": {
@@ -504,7 +505,7 @@
       "type": "n8n-nodes-base.github",
       "position": [
         1420,
-        1120
+        1140
       ],
       "typeVersion": 1,
       "webhookId": "c7124de9-c521-4b56-85e6-637bfa465f72",
@@ -682,7 +683,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        920,
+        940,
         180
       ],
       "typeVersion": 1,
@@ -701,6 +702,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-19T01:47:07.000Z",
-  "versionId": "d2bf102f-0531-4524-8dd2-efa52e33b39a"
+  "updatedAt": "2025-05-20T00:42:26.000Z",
+  "versionId": "09dbaf72-910a-4dee-aac1-e2cbc2372ad2"
 }
