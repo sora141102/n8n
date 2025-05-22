@@ -30,17 +30,6 @@
         ]
       ]
     },
-    "Create Event": {
-      "ai_tool": [
-        [
-          {
-            "node": "Calendar Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Get Events": {
       "ai_tool": [
         [
@@ -91,6 +80,17 @@
           {
             "node": "Calendar Agent",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Event": {
+      "ai_tool": [
+        [
+          {
+            "node": "Calendar Agent",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -155,7 +155,7 @@
         "promptType": "define",
         "text": "={{ $json.query }}",
         "options": {
-          "systemMessage": "=# Overview\nYou are a calendar assistant. Your responsibilities include creating, getting, and deleting events in the user's calendar.\n\nAll the output need to be in Vietnamese.\n\n**Calendar Management Tools**  \n   - Use \"Create Event with Attendee\" when an event includes a participant.  \n   - Use \"Create Event\" for solo events.   \n   - Use \"Get Events\" to fetch calendar schedules when requested.\n   - Use \"Delete Event\" to delete an event. You must use \"Get Events\" first to get the ID of the event to delete.\n   - Use \"Update Event\" to update an event. You must use \"Get Events\" first to get the ID of the event to update.\n\n## Final Notes\nHere is the current date/time: {{ $now }}\nIf a duration for an event isn't specified, assume it will be one hour."
+          "systemMessage": "=# Overview\nYou are a calendar assistant. Your responsibilities include creating, getting, and deleting events in the user's calendar.\n\nAll the output need to be in Vietnamese.\n\n**Calendar Management Tools**  \n   - Use \"Create Event with Attendee\" when an event includes a participant.  \n   - Use \"Create Event\" for solo events.   \n   - Use \"Get Events\" to fetch calendar schedules when requested.\n   - Use \"Delete Event\" to delete an event. You must use \"Get Events\" first to get the ID of the event to delete.\n   - Use \"Update Event\" to update an event. You must use \"Get Events\" first to get the ID of the event to update.\n\n# Rules\n- All requests for creating calendars and events must use Create Event.\n\n\n## Final Notes\nHere is the current date/time: {{ $now }}\nIf a duration for an event isn't specified, assume it will be one hour."
         }
       },
       "id": "b85d4e16-c753-4eb4-a1ed-42a1ea79b952",
@@ -172,15 +172,15 @@
       "parameters": {
         "calendar": {
           "__rl": true,
-          "value": "testeronepro@gmail.com",
-          "mode": "list",
-          "cachedResultName": "testeronepro@gmail.com"
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Calendar', ``, 'string') }}",
+          "mode": "id",
+          "__regex": "(^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*)"
         },
-        "start": "={{ $fromAI(\"eventStart\") }}",
-        "end": "={{ $fromAI(\"eventEnd\") }}",
+        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
+        "end": "={{ $fromAI('End', ``, 'string') }}",
         "additionalFields": {
           "attendees": [
-            "={{ $fromAI(\"eventAttendeeEmail\") }}"
+            "sd"
           ],
           "description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', `Mô tả của event là nội dung của lịch đấy một cách chi tiết hơn, giới hạn trong 20 words đổ lại.`, 'string') }}",
           "summary": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Summary', `Nội dung buổi họp (title cuộc họp) là chủ đề của cuộc họp một cách vắn tắt, không nên quá 10 chữ (10 words).`, 'string') }}"
@@ -189,43 +189,11 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -220,
+        -120,
         360
       ],
       "id": "bd7b95c8-a3d1-434e-a83c-6d5c799d0a08",
       "name": "Create Event with Attendee",
-      "credentials": {
-        "googleCalendarOAuth2Api": {
-          "id": "M46c9cPjRh4cyuNG",
-          "name": "Google Calendar account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "calendar": {
-          "__rl": true,
-          "value": "testeronepro@gmail.com",
-          "mode": "list",
-          "cachedResultName": "testeronepro@gmail.com"
-        },
-        "start": "={{ $fromAI(\"eventStart\") }}",
-        "end": "={{ $fromAI(\"eventEnd\") }}",
-        "useDefaultReminders": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Use_Default_Reminders', `nhắc nhở 10 phút trước khi có task`, 'boolean') }}",
-        "additionalFields": {
-          "attendees": [],
-          "description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', `Mô tả của event là nội dung của lịch đấy một cách chi tiết hơn, giới hạn trong 20 words đổ lại.`, 'string') }}",
-          "summary": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Summary', `Nội dung buổi họp (title cuộc họp) là chủ đề của cuộc họp một cách vắn tắt, không nên quá 10 chữ (10 words).`, 'string') }}"
-        }
-      },
-      "type": "n8n-nodes-base.googleCalendarTool",
-      "typeVersion": 1.3,
-      "position": [
-        -360,
-        460
-      ],
-      "id": "ccf4abc4-4ec0-42bb-9b91-58ac366e9703",
-      "name": "Create Event",
       "credentials": {
         "googleCalendarOAuth2Api": {
           "id": "M46c9cPjRh4cyuNG",
@@ -249,8 +217,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -500,
-        500
+        -400,
+        360
       ],
       "id": "20ee5a75-fdc2-47be-a25e-fa67df43e9fe",
       "name": "Get Events",
@@ -276,8 +244,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -640,
-        480
+        -540,
+        360
       ],
       "id": "7d85afe4-8507-4aa3-ad45-c43878ae610e",
       "name": "Delete Event",
@@ -306,8 +274,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -780,
-        440
+        -700,
+        360
       ],
       "id": "deb3dd82-130e-48a1-8485-285ccab05066",
       "name": "Update Event",
@@ -350,15 +318,55 @@
           "name": "Google Gemini(PaLM) Api account"
         }
       }
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "testeronepro@gmail.com",
+          "mode": "list",
+          "cachedResultName": "testeronepro@gmail.com"
+        },
+        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', `Thời gian bắt đầu`, 'string') }}",
+        "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', `Thời gian kết thúc`, 'string') }}",
+        "useDefaultReminders": "={{ $fromAI('Use_Default_Reminders', `nhắc nhở 10 phút trước khi có task`, 'boolean') }}",
+        "additionalFields": {
+          "attendees": [],
+          "description": "={{ $fromAI('Description', `Mô tả của event là nội dung của lịch đấy một cách chi tiết hơn, giới hạn trong 20 words đổ lại.`, 'string') }}",
+          "summary": "={{ $fromAI('Summary', `Nội dung buổi họp (title cuộc họp) là chủ đề của cuộc họp một cách vắn tắt, không nên quá 10 chữ (10 words).`, 'string') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        -260,
+        360
+      ],
+      "id": "2fac7334-df0e-46a4-916e-41e8b04487c1",
+      "name": "Create Event",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "M46c9cPjRh4cyuNG",
+          "name": "Google Calendar account"
+        }
+      }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "query": "create calendar"
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-17T00:42:50.000Z",
-  "versionId": "b468a9fa-96cb-4b5f-a42f-f2c626708647"
+  "updatedAt": "2025-05-22T02:31:56.000Z",
+  "versionId": "c2e6131f-81ed-4b27-9807-7f32e0dda357"
 }
