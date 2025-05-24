@@ -189,8 +189,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -120,
-        360
+        -20,
+        380
       ],
       "id": "bd7b95c8-a3d1-434e-a83c-6d5c799d0a08",
       "name": "Create Event with Attendee",
@@ -217,8 +217,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -400,
-        360
+        -320,
+        380
       ],
       "id": "20ee5a75-fdc2-47be-a25e-fa67df43e9fe",
       "name": "Get Events",
@@ -244,8 +244,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -540,
-        360
+        -480,
+        380
       ],
       "id": "7d85afe4-8507-4aa3-ad45-c43878ae610e",
       "name": "Delete Event",
@@ -274,8 +274,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -700,
-        360
+        -660,
+        380
       ],
       "id": "deb3dd82-130e-48a1-8485-285ccab05066",
       "name": "Update Event",
@@ -293,7 +293,7 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        -920,
+        -980,
         100
       ],
       "id": "6b4e3b4e-8eba-489b-9f83-97fb3ec3dc6f",
@@ -315,7 +315,7 @@
       "credentials": {
         "googlePalmApi": {
           "id": "2ZCIwe2zVXFxCSmA",
-          "name": "Google Gemini(PaLM) Api account"
+          "name": "API Gemini Sora"
         }
       }
     },
@@ -339,8 +339,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -260,
-        360
+        -180,
+        380
       ],
       "id": "2fac7334-df0e-46a4-916e-41e8b04487c1",
       "name": "Create Event",
@@ -350,6 +350,20 @@
           "name": "Google Calendar account"
         }
       }
+    },
+    {
+      "parameters": {
+        "height": 760,
+        "width": 1580
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1180,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "4a5e4f07-6489-40cc-a55b-de467f544875",
+      "name": "Sticky Note"
     }
   ],
   "pinData": {
@@ -367,6 +381,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-22T02:31:56.000Z",
-  "versionId": "c2e6131f-81ed-4b27-9807-7f32e0dda357"
+  "updatedAt": "2025-05-23T01:39:41.000Z",
+  "versionId": "adfe89ef-a70f-4780-b9d6-a0678a44fd66"
 }
